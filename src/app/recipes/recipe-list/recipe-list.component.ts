@@ -7,10 +7,10 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  @Output() recipeWasSelected = new EventEmitter<>(Recipe)
+  @Output() recipeWasSelected = new EventEmitter<Recipe>()
   recipes : Recipe[] = [
-    new Recipe('test', 'test Desc', 'https://images.media-allrecipes.com/images/56589.png'),
-    new Recipe('test', 'test Desc', 'https://images.media-allrecipes.com/images/56589.png')
+    new Recipe('test1', 'test Des1c', 'https://images.media-allrecipes.com/images/56589.png'),
+    new Recipe('test2', 'test Desc2', 'https://images.media-allrecipes.com/images/56589.png')
   ];
 
   constructor() { }
@@ -19,6 +19,7 @@ export class RecipeListComponent implements OnInit {
   }
 
   onRecipeSelected(recipe : Recipe){
+    console.log("List");
     this.recipeWasSelected.emit(recipe);
   }
 
